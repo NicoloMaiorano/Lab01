@@ -18,11 +18,11 @@ class domanda:
         print(f" {self.testo} , {self.difficolta} , {self.risposta} , {self.rispostaS1} , {self.rispostaS2} , {self.rispostaS3}")
 
 listaDomande = []
-str = ""
+stringa = ""
 for line in domande:
-    str += line
+    stringa += line
 
-l = str.split("\n")
+l = stringa.split("\n")
 
 i=0
 b = ['','','','','','']
@@ -66,18 +66,30 @@ while errore == 0 and diff <= int(livelloMax):
 
 print("Il tuo punteggio finale è: ", punteggio)
 nick = input("Inserisci il tuo nickname: ")
+temp = open("temporaneo.thx", "w")
+trovato = 0
 
 for p in punti:
     p=p.strip("\n")
     riga=p.split(" ")
+    nuovaR = ""
 
     if riga[0] == nick:
-        print("Il nickname esiste già, sovrascrivere i dati? ")
-        scelta = input()
+        nuovaR = nick + " " + str(punteggio) + "\n"
+        temp.write(nuovaR)
+        trovato = 1
+    else:
+        nuovaR = riga[0] + " " + riga[1] + "\n"
+        temp.write(nuovaR)
 
-        if scelta == "si":
+if trovato == 0:
+    temp.write(nick + " " + str(punteggio) + "\n")
 
-            punti.close()
-            punti.open("punti.txt", "w")
+temp.close()
+punti.close()
 
+scrivi = open("punti.txt", "w")
+leggi = open("temporaneo.thx", "r")
 
+for l in leggi:
+    scrivi.write(l)
