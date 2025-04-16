@@ -3,7 +3,7 @@ import random
 domande = open("domande.txt", "r")
 punti = open("punti.txt", "r")
 livelloMax = 0
-
+#classe domanda con il testo, la difficoltà e le 4 possibili risposte, compresa quella corretta
 class domanda:
     def __init__(self, testo, difficolta, risposta, rispostaS1, rispostaS2, rispostaS3):
         self.testo = testo
