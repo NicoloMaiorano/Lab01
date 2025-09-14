@@ -91,7 +91,7 @@ while errore == 0 and diff <= int(livelloMax):
                 print(d.rispostaS2)
                 print(d.rispostaS3)
 
-                inserimento = input("Inserire la risposta: ")
+                inserimento = input("Inserire la rispostaAaaa: ")
 
                 c=1
                 #controllo la risposta inserita
@@ -136,3 +136,4 @@ leggi = open("temporaneo.thx", "r")
 
 for l in leggi:
     scrivi.write(l)
+
